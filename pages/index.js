@@ -474,7 +474,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <h2 className="text-4xl md:text-5xl font-black mb-4">
+              <h2 className="text-4xl md:text-5xl font-black mb-4 text-white">
                 Rated by Gamers in <span className="text-ps-blue glow-text">Ahmedabad</span>
               </h2>
             </div>
@@ -509,7 +509,7 @@ export default function Home() {
         <section className="py-20 md:py-32 bg-[#0B0B0F]">
           <div className="container-custom">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl md:text-5xl font-black mb-4">
+              <h2 className="text-4xl md:text-5xl font-black mb-4 text-white">
                 Visit <span className="text-ps-blue glow-text">THE GAMING GARAGE</span>
               </h2>
             </div>
@@ -605,7 +605,7 @@ export default function Home() {
           <div className="container-custom">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div>
-                <h3 className="text-2xl font-black mb-4">
+                <h3 className="text-2xl font-black mb-4 text-white">
                   THE GAMING <span className="text-ps-blue">GARAGE</span>
                 </h3>
                 <p className="text-gray-400 leading-relaxed max-w-xl">
