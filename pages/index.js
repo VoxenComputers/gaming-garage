@@ -6,13 +6,24 @@ import { Card, CardContent } from '@/components/ui/card';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const lastScrollY = React.useRef(0);
 
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrollY(window.scrollY);
+          const currentScrollY = window.scrollY;
+
+          if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+            setIsHeaderVisible(false);
+          } else {
+            setIsHeaderVisible(true);
+          }
+
+          lastScrollY.current = currentScrollY;
+          setScrollY(currentScrollY);
           ticking = false;
         });
         ticking = true;
@@ -148,7 +159,10 @@ export default function Home() {
 
       <div className="gaming-garage">
         {/* Header */}
-        <header className="fixed top-0 left-0 right-0 z-50 bg-dark-primary/80 backdrop-blur-xl border-b border-ps-blue/10">
+        <header
+          className={`fixed top-0 left-0 right-0 z-50 bg-dark-primary/80 backdrop-blur-xl border-b border-ps-blue/10 transition-transform duration-300 ease-in-out ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+            }`}
+        >
           <div className="container-custom py-4 flex items-center justify-between">
             <div className="logo-text">
               <div className="text-2xl font-black tracking-tight text-white">
@@ -509,7 +523,7 @@ export default function Home() {
         <section className="py-20 md:py-32 bg-[#0B0B0F]">
           <div className="container-custom">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl md:text-5xl font-black mb-4 text-white">
+              <h2 className="text-4xl md:text-5xl font-black mb-4">
                 Visit <span className="text-ps-blue glow-text">THE GAMING GARAGE</span>
               </h2>
             </div>
